@@ -1,0 +1,39 @@
+{
+  "HTTP_SERVER_IP": "http://localhost:8080",
+  "WS_SERVER_IP": "http://localhost:8080",
+
+  "INPUT_BATCH": 4,
+  "INPUT_HEIGHT": 24,
+  "INPUT_WIDTH": 24,
+  "INPUT_CHANNEL": 3,
+
+  "LABELS": [
+    "airplane", "automobile", "bird", "cat", "deer",
+    "dog", "frog", "horse", "ship", "truck"
+  ],
+
+  "LAYERS": [
+    {
+      "name": "conv1",
+      "type": "conv",
+      "shape": [4, 3, 3, 64]
+    }, {
+      "name": "conv2",
+      "type": "conv",
+      "shape": [4, 3, 3, 64]
+    }
+  ],
+
+  "WORKERS": [
+    {
+      "ip": "192.168.199.112",
+      "capacity": 1
+    }, {
+      "ip": "192.168.199.113",
+      "capacity": 1
+    }, {
+      "ip": "192.168.199.114",
+      "capacity": 1
+    }
+  ]
+}
