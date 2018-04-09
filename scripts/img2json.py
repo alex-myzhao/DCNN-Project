@@ -31,33 +31,17 @@ def get_files_from_dir(path):
     return f_list
 
 
-def extract_flat_pixels_and_shape_from(file_path):
+def extract_flat_pixels_from(file_path):
     """Extract the Image Pixels.
-
     @return
-        1D tensor ([height * width * channel])
+        1D tensor ([channel * height * width])
         image height
         image width
     """
     img = Image.open(file_path).convert('RGB')
     img = img.resize(DEST_IMG_SIZE)
-    return list(img.getdata()), img.height, img.width
-
-
-def extract_image_pixels_from(file_path):
-    """Extract the Image Matrix.
-
-    @return
-        3D tensor ([height][width][channel])
-    """
-    img = Image.open(file_path).convert('RGB')
-    img = img.resize(DEST_IMG_SIZE)
-    pixels = list(img.getdata())
-    tensor_3d = []
-    for row_index in range(img.height):
-        from_to = (row_index * img.width, (row_index + 1) * img.width)
-        tensor_3d.append(pixels[from_to[0]:from_to[1]])
-    return tensor_3d
+    print(list(img.getdata()))
+    return list(img.getdata())
 
 
 def export_to_json_file(tensor, file_path):
@@ -69,11 +53,9 @@ def export_to_json_file(tensor, file_path):
 
 if __name__ == '__main__':
     img_flat_tensor = []  # [batch_size * height * width * channel]
-    img_shape = [0, 0]
     for an_img in get_files_from_dir(TARGET_DIR):
-        new_tensor, img_shape[0], img_shape[1] = extract_flat_pixels_and_shape_from(an_img)
+        new_tensor = extract_flat_pixels_from(an_img)
         img_flat_tensor += new_tensor
     np_img_flat_tensor = np.array(img_flat_tensor).ravel().tolist()
-    # print(np_img_flat_tensor.size)
-    # print(np_img_flat_tensor.shape)
+    # print(len(np_img_flat_tensor))
     export_to_json_file(np_img_flat_tensor, DEST_DIR + 'data.json')
