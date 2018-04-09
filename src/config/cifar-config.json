@@ -3,9 +3,9 @@
   "WS_SERVER_IP": "http://localhost:8080",
 
   "INPUT_BATCH": 4,
+  "INPUT_CHANNEL": 3,
   "INPUT_HEIGHT": 24,
   "INPUT_WIDTH": 24,
-  "INPUT_CHANNEL": 3,
 
   "LABELS": [
     "airplane", "automobile", "bird", "cat", "deer",
@@ -16,11 +16,11 @@
     {
       "name": "conv1",
       "type": "conv",
-      "shape": [4, 3, 3, 64]
+      "shape": [4, 64, 3, 3]
     }, {
       "name": "conv2",
       "type": "conv",
-      "shape": [4, 3, 3, 64]
+      "shape": [4, 64, 3, 3]
     }
   ],
 
