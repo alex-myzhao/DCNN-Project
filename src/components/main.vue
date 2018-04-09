@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import GroupOwner from '@/kernels/groupOwner'
+import LocalInfer from '@/kernels/local-infer'
 
 export default {
   name: 'Main',
@@ -18,8 +18,8 @@ export default {
     async loadImages () {}
   },
   created () {
-    let go = new GroupOwner()
-    go.testTF()
+    let engine = new LocalInfer()
+    engine.performInference()
   }
 }
 </script>
