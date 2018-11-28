@@ -1,21 +1,15 @@
-# dcnn-project
+# Distributed Convolution Neural Network
 
-> The DCNN Project
+> A web-based, distributed framework for Convolution Neural Network.
 
-## Build Setup
+- [Slide](./res/DCNN.pdf)
 
-``` bash
-# install dependencies
-npm install
+![demo](./res/demo.png)
 
-# serve with hot reload at localhost:8080
-npm run dev
+## Project Overview
 
-# build for production with minification
-npm run build
+![overview](./res/overview.png)
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+## Core Algorithm
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+![algorithm](./res/algorithm.png)
